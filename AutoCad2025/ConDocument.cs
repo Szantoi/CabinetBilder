@@ -55,8 +55,7 @@ namespace AutoCad2025
             if (System.Convert.ToInt16(obj) != 0)
             {
                 Document acDoc = Application.DocumentManager.MdiActiveDocument;
-                acDoc.Database.SaveAs(acDoc.Name, true, DwgVersion.Current,
-                                      acDoc.Database.SecurityParameters);
+                acDoc.Database.SaveAs(acDoc.Name, true, DwgVersion.Current, acDoc.Database.SecurityParameters);
             }
         }
 

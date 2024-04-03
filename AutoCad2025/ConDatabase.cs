@@ -14,14 +14,18 @@ namespace AutoCad2025
     {
         public static void ObjCopyDbToDb(ObjectIdCollection acObjIdColl, Database acDbCur, Database acDbNew, Transaction acTrans)
         {
-            BlockTable acBlkTblDocNew;
+            BlockTable? acBlkTblDocNew;
             acBlkTblDocNew = acTrans.GetObject(acDbNew.BlockTableId, OpenMode.ForRead) as BlockTable;
-
-            BlockTableRecord acBlkTblRecNew;
-            acBlkTblRecNew = acTrans.GetObject(acBlkTblDocNew[BlockTableRecord.ModelSpace], OpenMode.ForRead) as BlockTableRecord;
-
-            IdMapping acIdMap = new IdMapping();
-            acDbCur.WblockCloneObjects(acObjIdColl, acBlkTblRecNew.ObjectId, acIdMap, DuplicateRecordCloning.Ignore, false);
+            if (acBlkTblDocNew != null)
+            {
+                BlockTableRecord? acBlkTblRecNew;
+                acBlkTblRecNew = acTrans.GetObject(acBlkTblDocNew[BlockTableRecord.ModelSpace], OpenMode.ForRead) as BlockTableRecord;
+                if (acBlkTblRecNew != null)
+                {
+                    IdMapping acIdMap = new();
+                    acDbCur.WblockCloneObjects(acObjIdColl, acBlkTblRecNew.ObjectId, acIdMap, DuplicateRecordCloning.Ignore, false);
+                }
+            }
         }
     }
 }

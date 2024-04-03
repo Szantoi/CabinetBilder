@@ -4,6 +4,7 @@ using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using AutoCad2025;
+using CabinetBilder_UI;
 
 [assembly: CommandClass(typeof(CabinetBilder_AutoCad2025.Cam))]
 namespace CabinetBilder_AutoCad2025
@@ -55,6 +56,8 @@ namespace CabinetBilder_AutoCad2025
         [CommandMethod("Cam_Export")]
         public static void Export()
         {
+            string exportFolder = PopUp.OpenFolderDialog();
+
             Document acDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Database acDb = acDoc.Database;
             Editor ed = acDoc.Editor;
@@ -77,7 +80,7 @@ namespace CabinetBilder_AutoCad2025
 
                             foreach (ObjectId regionObjectId in regionObjectIds)
                             {
-                                ObjectIdCollection surfaceObjectIdCollection = new ObjectIdCollection();
+                                ObjectIdCollection surfaceObjectIdCollection = new();
 
                                 Region? region = acTra.GetObject(regionObjectId, OpenMode.ForRead) as Region;
                                 if (region != null)
@@ -95,7 +98,7 @@ namespace CabinetBilder_AutoCad2025
                                             }
                                         }
                                     }
-                                    ConDatabase.ObjCopyDbToDb(surfaceObjectIdCollection, acDbCur, acDbNew, acTrans);
+                                    ConDocument.SaveNowDrawing(exportFolder, acDb, surfaceObjectIdCollection);
 
                                 }
                             }
