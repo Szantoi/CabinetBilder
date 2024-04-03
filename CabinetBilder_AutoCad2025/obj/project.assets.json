@@ -1,0 +1,137 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "AutoCad2025/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/AutoCad2025.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AutoCad2025.dll": {}
+        }
+      },
+      "CabinetBilder_Bll/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/CabinetBilder_Bll.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CabinetBilder_Bll.dll": {}
+        }
+      },
+      "CabinetBilder_UI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/CabinetBilder_UI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CabinetBilder_UI.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "AutoCad2025/1.0.0": {
+      "type": "project",
+      "path": "../AutoCad2025/AutoCad2025.csproj",
+      "msbuildProject": "../AutoCad2025/AutoCad2025.csproj"
+    },
+    "CabinetBilder_Bll/1.0.0": {
+      "type": "project",
+      "path": "../CabinetBIlder_Bll/CabinetBilder_Bll.csproj",
+      "msbuildProject": "../CabinetBIlder_Bll/CabinetBilder_Bll.csproj"
+    },
+    "CabinetBilder_UI/1.0.0": {
+      "type": "project",
+      "path": "../CabinetBilder_UI/CabinetBilder_UI.csproj",
+      "msbuildProject": "../CabinetBilder_UI/CabinetBilder_UI.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "AutoCad2025 >= 1.0.0",
+      "CabinetBilder_Bll >= 1.0.0",
+      "CabinetBilder_UI >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\szant\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj",
+      "projectName": "CabinetBilder_AutoCad2025",
+      "projectPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj",
+      "packagesPath": "C:\\Users\\szant\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBilder_AutoCad2025\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\szant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\AutoCad2025\\AutoCad2025.csproj": {
+              "projectPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\AutoCad2025\\AutoCad2025.csproj"
+            },
+            "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBIlder_Bll\\CabinetBilder_Bll.csproj": {
+              "projectPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBIlder_Bll\\CabinetBilder_Bll.csproj"
+            },
+            "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBilder_UI\\CabinetBilder_UI.csproj": {
+              "projectPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\CabinetBilder_UI\\CabinetBilder_UI.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\bin\Debug\net8.0\CabinetBilder_AutoCad2025.deps.json
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\bin\Debug\net8.0\CabinetBilder_AutoCad2025.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\bin\Debug\net8.0\CabinetBilder_AutoCad2025.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.csproj.AssemblyReference.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.AssemblyInfoInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.AssemblyInfo.cs
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.csproj.CoreCompileInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\refint\CabinetBilder_AutoCad2025.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\ref\CabinetBilder_AutoCad2025.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\obj\Debug\net8.0\CabinetBilder_AutoCad2025.csproj.ResolveComReference.cache

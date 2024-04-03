@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CabinetBilder_AutoCad2025</id>
+    <version>1.0.0</version>
+    <authors>CabinetBilder_AutoCad2025</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="CabinetBilder_Bll" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="CabinetBilder_UI" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_AutoCad2025\bin\Debug\net8.0-windows\CabinetBilder_AutoCad2025.dll" target="lib\net8.0-windows7.0\CabinetBilder_AutoCad2025.dll" />
+  </files>
+</package>

@@ -1,0 +1,26 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CabinetBilder_AutoCad2025/1.0.0": {
+        "dependencies": {
+          "CabinetBilder_Bll": "1.0.0"
+        },
+        "runtime": {
+          "CabinetBilder_AutoCad2025.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CabinetBilder_AutoCad2025/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

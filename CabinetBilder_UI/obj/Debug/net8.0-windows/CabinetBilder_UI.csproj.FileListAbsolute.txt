@@ -1,0 +1,16 @@
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\bin\Debug\net8.0-windows\CabinetBilder_UI.exe
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\bin\Debug\net8.0-windows\CabinetBilder_UI.deps.json
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\bin\Debug\net8.0-windows\CabinetBilder_UI.runtimeconfig.json
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\bin\Debug\net8.0-windows\CabinetBilder_UI.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\bin\Debug\net8.0-windows\CabinetBilder_UI.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.Form1.resources
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.csproj.GenerateResource.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.AssemblyInfoInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.AssemblyInfo.cs
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.csproj.CoreCompileInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\refint\CabinetBilder_UI.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\CabinetBilder_UI.genruntimeconfig.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\AutoCad\CabinetBIlder\CabinetBilder_UI\obj\Debug\net8.0-windows\ref\CabinetBilder_UI.dll
