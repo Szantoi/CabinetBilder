@@ -11,15 +11,15 @@
       "RelativeMoniker": "D:0:0:{6140CAA4-5D1D-43A5-8303-456D4BB61AFD}|AutoCad2025\\AutoCad2025.csproj|solutionrelative:autocad2025\\condocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|solutionrelative:cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6140CAA4-5D1D-43A5-8303-456D4BB61AFD}|AutoCad2025\\AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\autocad2025\\condatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6140CAA4-5D1D-43A5-8303-456D4BB61AFD}|AutoCad2025\\AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\autocad2025\\condatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6140CAA4-5D1D-43A5-8303-456D4BB61AFD}|AutoCad2025\\AutoCad2025.csproj|solutionrelative:autocad2025\\condatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\cabinetbilder_autocad2025\\cabinetbilder_autocad2025.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\cabinetbilder_autocad2025\\cabinetbilder_autocad2025.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|solutionrelative:cabinetbilder_autocad2025\\cabinetbilder_autocad2025.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -42,8 +42,7 @@
               "RelativeToolTip": "AutoCad2025\\ConDatabase.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAAwBgAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T07:26:22.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T07:26:22.915Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "CabinetBilder_AutoCad2025\\Cad.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T07:13:04.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T07:13:04.444Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-03T05:09:13.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T05:09:13.022Z"
             }
           ]
         },

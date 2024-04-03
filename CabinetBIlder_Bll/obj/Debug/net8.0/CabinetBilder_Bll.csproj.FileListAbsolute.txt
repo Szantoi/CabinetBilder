@@ -1,0 +1,12 @@
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\bin\Debug\net8.0\CabinetBilder_Bll.deps.json
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\bin\Debug\net8.0\CabinetBilder_Bll.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\bin\Debug\net8.0\CabinetBilder_Bll.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.AssemblyInfoInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.AssemblyInfo.cs
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.csproj.CoreCompileInputs.cache
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.sourcelink.json
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\refint\CabinetBilder_Bll.dll
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\CabinetBilder_Bll.pdb
+C:\Users\szant\OneDrive - Eotvos Lorand Tudomanyegyetem\Dokumentumok\GitHab\CabinetBIlder\CabinetBilder\CabinetBIlder_Bll\obj\Debug\net8.0\ref\CabinetBilder_Bll.dll

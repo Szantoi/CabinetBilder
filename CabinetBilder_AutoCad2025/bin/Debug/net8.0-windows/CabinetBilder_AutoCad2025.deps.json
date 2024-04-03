@@ -1,0 +1,48 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CabinetBilder_AutoCad2025/1.0.0": {
+        "dependencies": {
+          "AutoCad2025": "1.0.0",
+          "CabinetBilder_Bll": "1.0.0",
+          "CabinetBilder_UI": "1.0.0"
+        },
+        "runtime": {
+          "CabinetBilder_AutoCad2025.dll": {}
+        }
+      },
+      "AutoCad2025/1.0.0": {
+        "runtime": {
+          "AutoCad2025.dll": {}
+        }
+      },
+      "CabinetBilder_UI/1.0.0": {
+        "runtime": {
+          "CabinetBilder_UI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CabinetBilder_AutoCad2025/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AutoCad2025/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CabinetBilder_UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
