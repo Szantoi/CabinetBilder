@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CabinetBilder_AutoCad2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28da37cbe572fe3947e30bb3f996ab80cd058a71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31cc2bf4c754e5b302323b154d792fda36391b3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("CabinetBilder_AutoCad2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CabinetBilder_AutoCad2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

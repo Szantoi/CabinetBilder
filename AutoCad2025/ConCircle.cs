@@ -12,24 +12,21 @@ namespace AutoCad2025
 {
     public class ConCircle
     {
-        [CommandMethod("SelectAndReadConsol")]
-        public void SelectAndReadConsol()
+        [CommandMethod("SelectCircle")]
+        public void SelectCircle()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Editor ed = doc.Editor;
 
-            //A köröket tartalmazó SelectionFilter létrehozása
             TypedValue[] circleFilter = new TypedValue[] { new TypedValue((int)DxfCode.Start, "CIRCLE") };
             SelectionFilter circleSelFilter = new SelectionFilter(circleFilter);
 
-            //Kiválasztás elindítása
             PromptSelectionResult selResult = ed.GetSelection(circleSelFilter);
             if (selResult.Status == PromptStatus.OK)
             {
                 SelectionSet selSet = selResult.Value;
                 foreach (SelectedObject selObj in selSet)
                 {
-                    // A kiválasztott objektumok feldolgozása
                     ObjectId objectId = selObj.ObjectId;
                     using (Transaction trans = doc.Database.TransactionManager.StartTransaction())
                     {
@@ -37,7 +34,6 @@ namespace AutoCad2025
                         if (ItIsCorrectId(objectId, trans))
                         {
                             Circle circle = (Circle)entity;
-                            // Itt feldolgozhatod a köröket
                             ed.WriteMessage($"\nSelected circle with center at ({Math.Round(circle.Center.X, 2)},{Math.Round(circle.Center.Y, 2)},{Math.Round(circle.Center.Z, 2)}) and radius {Math.Round(circle.Radius, 2)}");
                         }
                         trans.Commit();

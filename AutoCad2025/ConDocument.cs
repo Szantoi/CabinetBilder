@@ -26,7 +26,7 @@ namespace AutoCad2025
                                   acDoc.Database.SecurityParameters);
         }
 
-        public static void SaveNowDrawing(string strDWGName, Database acDbCur, ObjectIdCollection objectIdCollection)
+        public static void SaveToNowDrawingAndClose(string strDWGName, Database acDbCur, ObjectIdCollection objectIdCollection)
         {
 
             string strTemplatePath = "acad.dwt";
@@ -46,6 +46,26 @@ namespace AutoCad2025
             }
             SaveAsActiveDrawing(strDWGName, acDocNew);
             acDocNew.CloseAndDiscard();
+        }
+        public static void SaveToNowDrawingAndOpen(string strDWGName, Database acDbCur, ObjectIdCollection objectIdCollection)
+        {
+
+            string strTemplatePath = "acad.dwt";
+
+            DocumentCollection acDocMgrNew = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager;
+
+            Document acDocNew = acDocMgrNew.Add(strTemplatePath);
+            Database acDbNew = acDocNew.Database;
+
+            using (DocumentLock acLckDoc = acDocNew.LockDocument())
+            {
+                using (Transaction acTrans = acDbNew.TransactionManager.StartTransaction())
+                {
+                    ConDatabase.ObjCopyDbToDb(objectIdCollection, acDbCur, acDbNew, acTrans);
+                    acTrans.Commit();
+                }
+            }
+            SaveAsActiveDrawing(strDWGName, acDocNew);
         }
 
         public static void DrawingSaved()

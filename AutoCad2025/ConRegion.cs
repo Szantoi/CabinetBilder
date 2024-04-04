@@ -4,13 +4,14 @@ using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using System.Security.Cryptography;
+using System.Collections.Generic;
 
 [assembly: CommandClass(typeof(AutoCad2025.ConRegion))]
 namespace AutoCad2025
 {
     public class ConRegion
     {
-       
+
         [CommandMethod("CheckCircleInRegion")]
         public void CheckCircleInRegion()
         {
@@ -92,7 +93,7 @@ namespace AutoCad2025
                 if (regionIds.Count > 0)
                 {
                     ed.WriteMessage($"\nFound {regionIds.Count} region(s) in the drawing.");
-                    
+
                 }
                 else
                 {
@@ -110,22 +111,63 @@ namespace AutoCad2025
 
         public static bool IsPointInsideRegionExtent(Point3d point, Region region)
         {
+            Parameter par = new();
             Extents3d extents = region.GeometricExtents;
+            double enduranceLimit = par.EnduranceLimit;
 
             double x = point.X;
             double y = point.Y;
             double z = point.Z;
 
-            double minX = extents.MinPoint.X;
-            double minY = extents.MinPoint.Y;
-            double minZ = extents.MinPoint.Z;
-            double maxX = extents.MaxPoint.X;
-            double maxY = extents.MaxPoint.Y;
-            double maxZ = extents.MaxPoint.Z;
+            double minX = extents.MinPoint.X - enduranceLimit;
+            double minY = extents.MinPoint.Y - enduranceLimit;
+            double minZ = extents.MinPoint.Z - enduranceLimit;
+
+            double maxX = extents.MaxPoint.X + enduranceLimit;
+            double maxY = extents.MaxPoint.Y + enduranceLimit;
+            double maxZ = extents.MaxPoint.Z + enduranceLimit;
 
             return x >= minX && x <= maxX &&
                    y >= minY && y <= maxY &&
                    z >= minZ && z <= maxZ;
+        }
+
+        public static int InCircle(List<ObjectId> circleObjectIds, ObjectIdCollection surfaceObjectIdCollection, Region region, Transaction acTra)
+        {
+            int count = 0;
+            foreach (ObjectId circleObjectId in circleObjectIds)
+            {
+                Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForRead) as Circle;
+                if (circle != null)
+                {
+                    if (ConRegion.IsPointInsideRegionExtent(circle.Center, region))
+                    {
+                        count++;
+                        surfaceObjectIdCollection.Add(circleObjectId);
+                    }
+                }
+            }
+            return count;
+        }
+        public static int InLine(List<ObjectId> lineObjectIds, ObjectIdCollection surfaceObjectIdCollection, Region region, Transaction acTra)
+        {
+            int count = 0;
+            foreach (ObjectId lineObjectId in lineObjectIds)
+            {
+                Line? line = acTra.GetObject(lineObjectId, OpenMode.ForRead) as Line;
+                if (line != null)
+                {
+                    if (ConRegion.IsPointInsideRegionExtent(line.StartPoint, region))
+                    {
+                        if (ConRegion.IsPointInsideRegionExtent(line.EndPoint, region))
+                        {
+                            count++;
+                            surfaceObjectIdCollection.Add(lineObjectId);
+                        }
+                    }
+                }
+            }
+            return count;
         }
 
         public static bool Contain(BlockTableRecord blockTableRecord, Transaction trans)
@@ -143,7 +185,7 @@ namespace AutoCad2025
 
         public static List<ObjectId> Select(BlockTableRecord blockTableRecord, Transaction trans)
         {
-            List<ObjectId> objIds = new List<ObjectId>();
+            List<ObjectId> objIds = new();
             foreach (ObjectId entityId in blockTableRecord)
             {
                 if (ItIsCorrectId(entityId, trans))
@@ -156,7 +198,7 @@ namespace AutoCad2025
 
         public static List<ObjectId> Select(SelectionSet selSet, Transaction trans)
         {
-            List<ObjectId> objIds = new List<ObjectId>();
+            List<ObjectId> objIds = new();
 
             foreach (SelectedObject selObj in selSet)
             {

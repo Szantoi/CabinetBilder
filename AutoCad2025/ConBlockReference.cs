@@ -27,7 +27,7 @@ namespace AutoCad2025
 
                     string exportFileName = System.IO.Path.Combine(exportFolder, $"{blockRef.Name}.dwg");
 
-                    ConDocument.SaveNowDrawing(exportFileName, acDbCur, acObjIdColl);
+                    ConDocument.SaveToNowDrawingAndClose(exportFileName, acDbCur, acObjIdColl);
                 }
             }
         }

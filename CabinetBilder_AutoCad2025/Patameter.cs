@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CabinetBilder_AutoCad2025
 {
-    public class AutoCad2025_Patameter
+    public class Patameter
     {
         public int Accuracy { get; set; }
 
-        public AutoCad2025_Patameter()
+        public Patameter()
         {
             this.Accuracy = 2;
         }

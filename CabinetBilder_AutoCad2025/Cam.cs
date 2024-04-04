@@ -5,6 +5,8 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using AutoCad2025;
 using CabinetBilder_UI;
+using System.Collections.Generic;
+using System.Xml.Linq;
 
 [assembly: CommandClass(typeof(CabinetBilder_AutoCad2025.Cam))]
 namespace CabinetBilder_AutoCad2025
@@ -29,7 +31,8 @@ namespace CabinetBilder_AutoCad2025
                         BlockTableRecord? acBlkTabRec = acTra.GetObject(acBlkTblCor[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
                         if (acBlkTabRec != null)
                         {
-                            while (ConBlockReference.Contain(acBlkTabRec, acTra))
+                            int cycle = 0;
+                            while (ConBlockReference.Contain(acBlkTabRec, acTra) && cycle <= 5)
                             {
                                 List<ObjectId> blocTabRefs = ConBlockReference.Select(acBlkTabRec, acTra);
                                 foreach (ObjectId objectId in blocTabRefs)
@@ -37,8 +40,8 @@ namespace CabinetBilder_AutoCad2025
                                     ConBlockReference.Explode(objectId, acTra, acBlkTabRec);
                                 }
                             }
-
-                            while (ConSolid3D.Contain(acBlkTabRec, acTra))
+                            cycle = 0;
+                            while (ConSolid3D.Contain(acBlkTabRec, acTra) && cycle <= 5)
                             {
                                 List<ObjectId> blocTabRefs = ConSolid3D.Select(acBlkTabRec, acTra);
                                 foreach (ObjectId objectId in blocTabRefs)
@@ -57,6 +60,7 @@ namespace CabinetBilder_AutoCad2025
         public static void Export()
         {
             string exportFolder = PopUp.OpenFolderDialog();
+            int drawCount = 0;
 
             Document acDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Database acDb = acDoc.Database;
@@ -65,6 +69,10 @@ namespace CabinetBilder_AutoCad2025
             using DocumentLock acLockDoc = acDoc.LockDocument();
             if (acDb != null)
             {
+                ed.WriteMessage($"\n{exportFolder}");
+                string docName = System.IO.Path.GetFileNameWithoutExtension(acDoc.Name);
+                string namePrefix = $"{docName}";
+
                 using Transaction acTra = acDb.TransactionManager.StartTransaction();
                 if (acTra != null)
                 {
@@ -75,8 +83,9 @@ namespace CabinetBilder_AutoCad2025
                         if (acBlkTabRec != null)
                         {
                             List<ObjectId> regionObjectIds = ConRegion.Select(acBlkTabRec, acTra);
-                            List<ObjectId> circleObjectIds = ConCircle.Select(acBlkTabRec, acTra);
 
+                            List<ObjectId> circleObjectIds = ConCircle.Select(acBlkTabRec, acTra);
+                            List<ObjectId> lineObjectIds = ConLine.Select(acBlkTabRec, acTra);
 
                             foreach (ObjectId regionObjectId in regionObjectIds)
                             {
@@ -85,21 +94,22 @@ namespace CabinetBilder_AutoCad2025
                                 Region? region = acTra.GetObject(regionObjectId, OpenMode.ForRead) as Region;
                                 if (region != null)
                                 {
-                                    surfaceObjectIdCollection.Add(regionObjectId);
-                                    ed.WriteMessage($"\n{region.Normal}");
-                                    foreach(ObjectId circleObjectId in circleObjectIds)
-                                    {
-                                        Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForRead) as Circle;
-                                        if (circle != null)
-                                        {
-                                            if(ConRegion.IsPointInsideRegionExtent(circle.Center, region))
-                                            {
-                                                surfaceObjectIdCollection.Add(circleObjectId);
-                                            }
-                                        }
-                                    }
-                                    ConDocument.SaveNowDrawing(exportFolder, acDb, surfaceObjectIdCollection);
+                                    (string name, string namePostfix, string RegionNorlamV) = Name.SurfaceFileName(region, ++drawCount);
+                                    ed.WriteMessage($"\n{name}_{namePostfix}");
 
+                                    surfaceObjectIdCollection.Add(regionObjectId);
+
+                                    int count = 0;
+                                    count = ConRegion.InCircle(circleObjectIds, surfaceObjectIdCollection, region, acTra);
+                                    ed.WriteMessage($"\nIN circle: {count}");
+
+                                    count = 0;
+                                    count = ConRegion.InLine(lineObjectIds, surfaceObjectIdCollection, region, acTra);
+                                    ed.WriteMessage($"\nIN line: {count}");
+
+                                    string exportFileName = System.IO.Path.Combine(exportFolder, $"{namePrefix}_{name}_{namePostfix}.dwg");
+
+                                    ConDocument.SaveToNowDrawingAndClose(exportFileName, acDb, surfaceObjectIdCollection);
                                 }
                             }
                         }
