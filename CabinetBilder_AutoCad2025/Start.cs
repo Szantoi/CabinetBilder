@@ -16,16 +16,16 @@ namespace CabinetBilder_AutoCad2025
             Document acDocCor = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Database acDbCor = acDocCor.Database;
 
-            ObjectIdCollection acObjIdColl = new ObjectIdCollection();
-
             using Transaction acTraCor = acDbCor.TransactionManager.StartTransaction();
 
-            BlockTable acBlkTblCor = acTraCor.GetObject(acDbCor.BlockTableId, OpenMode.ForRead) as BlockTable;
-            BlockTableRecord msBlkRecCor = acTraCor.GetObject(acBlkTblCor[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
+            BlockTable? acBlkTblCor = acTraCor.GetObject(acDbCor.BlockTableId, OpenMode.ForRead) as BlockTable;
+            if (acBlkTblCor != null)
+            {
+                Editor ed = acDocCor.Editor;
 
-            Editor ed = acDocCor.Editor;
+                ed.WriteMessage("Hello World ... ");
+            }
 
-            ed.WriteMessage("Hello World ... ");
         }
     }
 }

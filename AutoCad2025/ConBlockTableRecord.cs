@@ -3,6 +3,7 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.Colors;
 
 [assembly: CommandClass(typeof(AutoCad2025.ConBlockTableRecord))]
 namespace AutoCad2025
@@ -175,6 +176,21 @@ namespace AutoCad2025
                 }
             }
             return l;
+        }
+
+        public static int setAllEtityColorBayLayer(BlockTableRecord blockTableRecord, Transaction trans)
+        {
+            int caout = 0;
+            foreach (ObjectId entityId in blockTableRecord)
+            {
+                using Entity? entity = trans.GetObject(entityId, OpenMode.ForWrite) as Entity;
+                if (entity != null)
+                {
+                    caout++;
+                    entity.Color = Color.FromColorIndex(ColorMethod.ByLayer, 256);
+                }
+            }
+            return caout;
         }
 
         public static List<ObjectId> Select(BlockTableRecord blockTableRecord, Transaction trans)

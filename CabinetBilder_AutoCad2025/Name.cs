@@ -6,8 +6,14 @@ using Autodesk.AutoCAD.Runtime;
 
 namespace CabinetBilder_AutoCad2025
 {
-    internal class Name
+
+    public class Name
     {
+        public Name()
+        {
+
+        }
+
         public static (string name, bool parallel) Surface(Region region)
         {
             string name = "Surface";

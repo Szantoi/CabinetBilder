@@ -15,5 +15,9 @@ namespace AutoCad2025
             EnduranceLimit = 0.1;
         }
 
+        public class Color()
+        {
+            public byte[] Info { get; } = [0, 0, 255];
+        }
     }
 }

@@ -5,6 +5,8 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using System.Security.Cryptography;
 using System.Collections.Generic;
+using System.Reflection.Emit;
+using Autodesk.AutoCAD.Colors;
 
 [assembly: CommandClass(typeof(AutoCad2025.ConRegion))]
 namespace AutoCad2025
@@ -13,7 +15,7 @@ namespace AutoCad2025
     {
 
         [CommandMethod("CheckCircleInRegion")]
-        public void CheckCircleInRegion()
+        public static void CheckCircleInRegion()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Editor ed = doc.Editor;
@@ -67,7 +69,7 @@ namespace AutoCad2025
         }
 
         [CommandMethod("NumberRegionsTheModel")]
-        public void NumberRegionsTheModel()
+        public static void NumberRegionsTheModel()
         {
             Document doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Database db = doc.Database;
@@ -82,7 +84,7 @@ namespace AutoCad2025
 
                 foreach (ObjectId objId in btr)
                 {
-                    Entity entity = trans.GetObject(objId, OpenMode.ForRead) as Entity;
+                    using Entity entity = trans.GetObject(objId, OpenMode.ForRead) as Entity;
                     if (entity != null && entity is Region)
                     {
                         regionIds.Add(objId);
@@ -100,6 +102,53 @@ namespace AutoCad2025
                     ed.WriteMessage("\nNo region found in the drawing.");
                 }
             }
+        }
+
+        public static Line[] ToLine(Region region)
+        {
+            Extents3d extents = region.GeometricExtents;
+
+            double minX = extents.MinPoint.X;
+            double minY = extents.MinPoint.Y;
+            double minZ = extents.MinPoint.Z;
+
+            double maxX = extents.MaxPoint.X;
+            double maxY = extents.MaxPoint.Y;
+            double maxZ = extents.MaxPoint.Z;
+
+            Point3d point_0 = new Point3d(minX, minY, minZ);
+            Point3d point_1 = new Point3d(minX, maxY, minZ);
+            Point3d point_2 = new Point3d(maxX, maxY, maxZ);
+            Point3d point_3 = new Point3d(maxX, minY, maxZ);
+
+            Line[] lines = [
+                new Line(point_0, point_1),
+                new Line(point_1, point_2),
+                new Line(point_2, point_3),
+                new Line(point_3, point_0),
+            ];
+
+            return lines;
+        }
+
+        public static Polyline ToPolyline(Region region)
+        {
+            Polyline pline = new Polyline();
+            Extents3d extents = region.GeometricExtents;
+
+            double minX = extents.MinPoint.X;
+            double minY = extents.MinPoint.Y;
+
+            double maxX = extents.MaxPoint.X;
+            double maxY = extents.MaxPoint.Y;
+
+            pline.AddVertexAt(0, new Point2d(minX, minY), 0, 0, 0);
+            pline.AddVertexAt(1, new Point2d(minX, maxY), 0, 0, 0);
+            pline.AddVertexAt(2, new Point2d(maxX, maxY), 0, 0, 0);
+            pline.AddVertexAt(3, new Point2d(maxX, minY), 0, 0, 0);
+            pline.Closed = true;
+
+            return pline;
         }
 
         public static bool Intersects(Entity entity, Region region)
@@ -137,7 +186,7 @@ namespace AutoCad2025
             int count = 0;
             foreach (ObjectId circleObjectId in circleObjectIds)
             {
-                Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForRead) as Circle;
+                using Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForRead) as Circle;
                 if (circle != null)
                 {
                     if (ConRegion.IsPointInsideRegionExtent(circle.Center, region))
@@ -149,12 +198,32 @@ namespace AutoCad2025
             }
             return count;
         }
+
+        public static int InCircleColor(List<ObjectId> circleObjectIds, Region region, Transaction acTra)
+        {
+            Parameter.Color color = new();
+            int count = 0;
+            foreach (ObjectId circleObjectId in circleObjectIds)
+            {
+                using Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForWrite) as Circle;
+                if (circle != null)
+                {
+                    if (ConRegion.IsPointInsideRegionExtent(circle.Center, region))
+                    {
+                        count++;
+                        circle.Color = Color.FromRgb(color.Info[0], color.Info[1], color.Info[2]);
+                    }
+                }
+            }
+            return count;
+        }
+
         public static int InLine(List<ObjectId> lineObjectIds, ObjectIdCollection surfaceObjectIdCollection, Region region, Transaction acTra)
         {
             int count = 0;
             foreach (ObjectId lineObjectId in lineObjectIds)
             {
-                Line? line = acTra.GetObject(lineObjectId, OpenMode.ForRead) as Line;
+                using Line? line = acTra.GetObject(lineObjectId, OpenMode.ForRead) as Line;
                 if (line != null)
                 {
                     if (ConRegion.IsPointInsideRegionExtent(line.StartPoint, region))
@@ -163,6 +232,28 @@ namespace AutoCad2025
                         {
                             count++;
                             surfaceObjectIdCollection.Add(lineObjectId);
+                        }
+                    }
+                }
+            }
+            return count;
+        }
+        public static int InLineColor(List<ObjectId> lineObjectIds, Region region, Transaction acTra)
+        {
+            Parameter.Color color = new();
+
+            int count = 0;
+            foreach (ObjectId lineObjectId in lineObjectIds)
+            {
+                using Line? line = acTra.GetObject(lineObjectId, OpenMode.ForWrite) as Line;
+                if (line != null)
+                {
+                    if (ConRegion.IsPointInsideRegionExtent(line.StartPoint, region))
+                    {
+                        if (ConRegion.IsPointInsideRegionExtent(line.EndPoint, region))
+                        {
+                            count++;
+                            line.Color = Color.FromRgb(color.Info[0],color.Info[1], color.Info[2]);
                         }
                     }
                 }
@@ -213,7 +304,7 @@ namespace AutoCad2025
 
         public static bool ItIsCorrectId(ObjectId objectId, Transaction trans)
         {
-            Entity? entity = trans.GetObject(objectId, OpenMode.ForRead) as Entity;
+            using Entity? entity = trans.GetObject(objectId, OpenMode.ForRead) as Entity;
             if (entity != null)
             {
                 if (entity is Region)
