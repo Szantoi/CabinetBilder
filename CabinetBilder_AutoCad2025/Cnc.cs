@@ -51,7 +51,6 @@ namespace CabinetBilder_AutoCad2025
                                         acBlkTabRec.AppendEntity(line);
                                         acTra.AddNewlyCreatedDBObject(line, true);
                                     }
-
                                 }
                             }
                         }
@@ -61,12 +60,13 @@ namespace CabinetBilder_AutoCad2025
             }
         }
 
-        [CommandMethod("Cnc_MuvRot")]
-        public static void Cnc_MuvRot()
+        [CommandMethod("Cnc_Muv_Rot")]
+        public static void Cnc_Muv_Rot()
         {
             Document acDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Database acDb = acDoc.Database;
             Editor ed = acDoc.Editor;
+            double circleRadius = 20;
 
             using DocumentLock acLockDoc = acDoc.LockDocument();
             if (acDb != null)
@@ -90,24 +90,65 @@ namespace CabinetBilder_AutoCad2025
                                     Region? region = acTra.GetObject(regionObjectId, OpenMode.ForWrite) as Region;
                                     if (region != null)
                                     {
-                                        ConMuveRot.AlignWithXYPlane(region);
-                                        //(Matrix3d translationMatrix, Matrix3d rotationMatrix) = ConMuveRot.MoveAndRotate(region, ConMuveRot.GetRegionRollAngle(region));
+                                        Matrix3d translationMatrixXY = ConMuve.XYPlane(region);
+                                        Matrix3d rotationMatrixXY = ConRotation.XYPlane(region);
 
-                                        //region.TransformBy(translationMatrix);
-                                        //region.TransformBy(rotationMatrix);
+                                        region.TransformBy(translationMatrixXY);
+                                        region.TransformBy(rotationMatrixXY);
 
-                                        //List<ObjectId> circleObjectIds = ConCircle.Select(acBlkTabRec, acTra);
-                                        //foreach (ObjectId circleObjectId in circleObjectIds)
-                                        //{
-                                        //    Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForWrite) as Circle;
-                                        //    if (circle != null)
-                                        //    {
-                                        //        circle.TransformBy(translationMatrix);
-                                        //        circle.TransformBy(rotationMatrix);
-                                        //    }
+                                        List<ObjectId> circleObjectIds = ConCircle.Select(acBlkTabRec, acTra);
+                                        foreach (ObjectId circleObjectId in circleObjectIds)
+                                        {
+                                            Circle? circle = acTra.GetObject(circleObjectId, OpenMode.ForWrite) as Circle;
+                                            if (circle != null)
+                                            {
+                                                circle.TransformBy(translationMatrixXY);
+                                                circle.TransformBy(rotationMatrixXY);
+                                            }
 
-                                        //    List<ObjectId> lineObjectIds = ConLine.Select(acBlkTabRec, acTra);
-                                        //}
+                                            List<ObjectId> lineObjectIds = ConLine.Select(acBlkTabRec, acTra);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    acTra.Commit();
+                }
+            }
+        }
+
+        [CommandMethod("CNC_Mark_Midpoints")]
+        public static void CNC_Mark_Midpoints()
+        {
+            Document acDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+            Database acDb = acDoc.Database;
+            Editor ed = acDoc.Editor;
+            double circleRadius = 20;
+
+            using DocumentLock acLockDoc = acDoc.LockDocument();
+            if (acDb != null)
+            {
+                using Transaction acTra = acDb.TransactionManager.StartTransaction();
+                if (acTra != null)
+                {
+                    BlockTable? acBlkTblCor = acTra.GetObject(acDb.BlockTableId, OpenMode.ForRead) as BlockTable;
+                    if (acBlkTblCor != null)
+                    {
+                        BlockTableRecord? acBlkTabRec = acTra.GetObject(acBlkTblCor[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
+                        if (acBlkTabRec != null)
+                        {
+
+                            double materialTicknes = 0;
+                            List<ObjectId> regionObjectIds = ConRegion.Select(acBlkTabRec, acTra);
+                            if (regionObjectIds != null)
+                            {
+                                foreach (ObjectId regionObjectId in regionObjectIds)
+                                {
+                                    Region? region = acTra.GetObject(regionObjectId, OpenMode.ForRead) as Region;
+                                    if (region != null)
+                                    {
+                                        MarkMidpoints(region, circleRadius);
                                     }
                                 }
                             }
@@ -259,5 +300,36 @@ namespace CabinetBilder_AutoCad2025
             return materialTicknes;
         }
 
+        public static void MarkMidpoints(Region region, double circleRadius)
+        {
+            // Régió határait meghatározó vonalak listája
+            DBObjectCollection boundaries = new DBObjectCollection();
+            region.Explode(boundaries);
+
+            using (Transaction trans = region.Database.TransactionManager.StartTransaction())
+            {
+                BlockTableRecord modelSpace = trans.GetObject(SymbolUtilityServices.GetBlockModelSpaceId(region.Database), OpenMode.ForWrite) as BlockTableRecord;
+
+                foreach (Entity boundary in boundaries)
+                {
+                    if (boundary is Line line)
+                    {
+                        // Vonalszakasz középpontjának meghatározása
+                        Point3d startPoint = line.StartPoint;
+                        Point3d endPoint = line.EndPoint;
+                        Point3d midpoint = new Point3d((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2, (startPoint.Z + endPoint.Z) / 2);
+
+                        // Kör létrehozása a középponttal
+                        Circle circle = new Circle(midpoint, Vector3d.ZAxis, circleRadius);
+
+                        // Kör hozzáadása a rajzterülethez
+                        modelSpace.AppendEntity(circle);
+                        trans.AddNewlyCreatedDBObject(circle, true);
+                    }
+                }
+
+                trans.Commit();
+            }
+        }
     }
 }

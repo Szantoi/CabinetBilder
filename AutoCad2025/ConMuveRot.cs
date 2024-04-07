@@ -6,21 +6,18 @@ using Autodesk.AutoCAD.Runtime;
 using System.Security.Cryptography;
 using System.Diagnostics;
 
-[assembly: CommandClass(typeof(AutoCad2025.ConLine))]
-
+[assembly: CommandClass(typeof(AutoCad2025.ConMuveRot))]
 namespace AutoCad2025
 {
     public class ConMuveRot
     {
-
         public static (Matrix3d translationMatrix, Matrix3d rotationMatrix) MoveAndRotate(Region region, double angleInDegrees)
         {
-
             Point3d minPoint = region.GeometricExtents.MinPoint;
             Point3d maxpoint = region.GeometricExtents.MaxPoint;
 
             //Edge1
-            Vector3d translationVector = new Vector3d(-minPoint.X, -minPoint.Y , -maxpoint.Z);
+            Vector3d translationVector = new Vector3d(-minPoint.X, -minPoint.Y, -maxpoint.Z);
             Matrix3d translationMatrix = Matrix3d.Displacement(translationVector);
 
             double angleInRadians = angleInDegrees * (Math.PI / 180.0);
@@ -28,25 +25,6 @@ namespace AutoCad2025
 
 
             return (translationMatrix, rotationMatrix);
-        }
-
-
-        public static double GetRegionRollAngle(Region region)
-        {
-            Vector3d normalVector = region.Normal;
-
-            // Ha a normál vektor Z komponense közel van a nullához, akkor a régió párhuzamos az X-Y síkkal
-            if (Math.Abs(normalVector.Z) < Tolerance.Global.EqualPoint)
-            {
-                return 0.0;
-            }
-            else
-            {
-                // Különben meghatározzuk a roll szöget az X-Y sík és a normál vektor közötti szögként
-                Vector3d xyPlaneNormal = new Vector3d(0, 0, 1); // Az X-Y sík normál vektora
-                double angle = normalVector.GetAngleTo(xyPlaneNormal); // A normál vektor és az X-Y sík normál vektora közötti szög
-                return angle; // A roll szög radiánban
-            }
         }
 
         public static void AlignWithXYPlane(Region region)

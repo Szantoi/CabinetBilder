@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoCad2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89342938a8af7ba6d9bd6571b8658232c7350dfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b205e123e30a724a47491b7c5b779e72a9e69878")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoCad2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoCad2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

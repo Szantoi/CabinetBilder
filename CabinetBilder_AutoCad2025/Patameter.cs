@@ -21,7 +21,7 @@ namespace CabinetBilder_AutoCad2025
                 {
                     public string Prefix { get; } = "DIM%Z#";
                     public byte[] Corol { get; } = [255, 0, 255];
-                }
+                } 
 
                 public class Drill()
                 {
@@ -34,11 +34,11 @@ namespace CabinetBilder_AutoCad2025
                         Physics.Drill drillPhy = new();
                         if (Math.Abs(normal.Z) == 1)
                         {
-                            l = i > -1 * (materialTicknes + drillPhy.Overboring) && i < 0;
+                            l = i >= -1 * (materialTicknes + drillPhy.Overboring) && i < 0;
                         }
                         else
                         {
-                            l = i > -1 * drillPhy.DepthMaxY && i < 0;
+                            l = i >= -1 * drillPhy.DepthMaxY && i < 0;
                         }
                         return l;
                     }
@@ -51,7 +51,7 @@ namespace CabinetBilder_AutoCad2025
                     public bool DepthIsCorrect(double i, double materialTicknes)
                     {
                         Physics.Milling millingPhy = new();
-                        return i > -1 * (materialTicknes + millingPhy.Overboring) && i < 0;
+                        return i >= -1 * (materialTicknes + millingPhy.Overboring) && i < 0;
                     }
                 }
             }
