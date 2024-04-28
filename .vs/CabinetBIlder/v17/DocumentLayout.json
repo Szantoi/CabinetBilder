@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|solutionrelative:cabinetbilder_autocad2025\\cad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\cabinetbilder_autocad2025\\patameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\cabinetbilder_autocad2025\\patameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|solutionrelative:cabinetbilder_autocad2025\\patameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|c:\\users\\szant\\onedrive - eotvos lorand tudomanyegyetem\\dokumentumok\\githab\\cabinetbilder\\cabinetbilder\\cabinetbilder_autocad2025\\cnc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|C:\\Users\\szant\\OneDrive - Eotvos Lorand Tudomanyegyetem\\Dokumentumok\\GitHab\\CabinetBIlder\\CabinetBilder\\cabinetbilder_autocad2025\\cnc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F26D6F2-6C8C-4CE2-A1F3-029E2B5CA35A}|CabinetBilder_AutoCad2025\\CabinetBilder_AutoCad2025.csproj|solutionrelative:cabinetbilder_autocad2025\\cnc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,8 +50,7 @@
               "RelativeToolTip": "CabinetBilder_AutoCad2025\\Patameter.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T12:35:51.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T12:35:51.733Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "CabinetBilder_AutoCad2025\\Cnc.cs",
               "ViewState": "AQIAAGwAAAAAAAAAAAAAAC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T14:03:37.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T14:03:37.644Z"
             },
             {
               "$type": "Document",
